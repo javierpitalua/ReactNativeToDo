@@ -1,13 +1,20 @@
 import React from 'react';
-import { Text, TextInput, View, Button, Alert, StatusBar, Navi } from 'react-native';
-import LoginStyles from '../../../app/css/LoginStyles';
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  Button,
+  Alert,
+  StatusBar
+} from 'react-native';
 
 const usernamePlaceholder = 'Username';
 const passwordPlaceholder = 'Password';
 
 export default class LoginScreen extends React.Component {
   static navigationOptions = {
-    title: 'Login',
+    header: null,
   };
 
   constructor(props, context) {
@@ -19,7 +26,7 @@ export default class LoginScreen extends React.Component {
     const { navigate } = this.props.navigation;
     navigate('HomeScreen');
   }
-  
+
   render() {
     return (
       <View style={LoginStyles.mainContainer}>
@@ -32,9 +39,44 @@ export default class LoginScreen extends React.Component {
           <TextInput style={LoginStyles.textInput} placeholder={passwordPlaceholder}></TextInput>
         </View>
         <View style={LoginStyles.buttonContainer}>
-          <Button style={LoginStyles.button} color='skyblue' title='Login' onPress={this._doLogin} />
+          <Button style={LoginStyles.button} color='skyblue' title='LOG IN' onPress={this._doLogin} />
         </View>
       </View>
     );
   }
 }
+
+const LoginStyles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: '#eeeeee',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%'
+  },
+  inputContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: '#eeeeee',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%'
+  },
+  title: {
+    fontSize: 50
+  },
+  textInput: {
+    width: '75%',
+    height: 50
+  },
+  buttonContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+  },
+  button: {
+    height: 50
+  },
+});
