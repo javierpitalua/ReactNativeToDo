@@ -2,23 +2,20 @@ import React from 'react';
 import {
   StyleSheet,
   Text,
-  TextInput,
-  View,
-  Button,
-  Alert
+  View
 } from 'react-native';
 
 export default class HeaderTitle extends React.Component {
   render() {
     return (
-      <View style={HeaderTitleStyles.mainContainer}>
-        <Text style={HeaderTitleStyles.title}>Welcome [Username]!</Text>
+      <View style={HeaderStyles.mainContainer}>
+        <Text style={HeaderStyles.title}>Welcome [Username]!</Text>
       </View>
     );
   }
 }
 
-const HeaderTitleStyles = StyleSheet.create({
+const HeaderStyles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     flexDirection: 'column',

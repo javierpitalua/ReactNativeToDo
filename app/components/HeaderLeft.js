@@ -1,24 +1,24 @@
 import React from 'react';
 import {
   StyleSheet,
-  Text,
-  TextInput,
   View,
-  Button,
-  Alert
+  Image
 } from 'react-native';
 
 export default class HeaderLeft extends React.Component {
   render() {
     return (
-      <View style={HeaderTitleStyles.mainContainer}>
-        <Text style={HeaderTitleStyles.title}>[Profile Picture]</Text>
+      <View style={HeaderStyles.mainContainer}>
+        <Image
+          style={{ width: 50, height: 50 }}
+          source={require('../../app/img/userDefault.png')}
+        />
       </View>
     );
   }
 }
 
-const HeaderTitleStyles = StyleSheet.create({
+const HeaderStyles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     flexDirection: 'column',

@@ -1,24 +1,21 @@
 import React from 'react';
 import {
   StyleSheet,
-  Text,
-  TextInput,
   View,
-  Button,
-  Alert
+  Button
 } from 'react-native';
 
 export default class HeaderRight extends React.Component {
   render() {
     return (
-      <View style={HeaderTitleStyles.mainContainer}>
-        <Text style={HeaderTitleStyles.title}>LOG OUT</Text>
+      <View style={HeaderStyles.mainContainer}>
+        <Button color='skyblue' title='LOG OUT' onPress={() => {}} />
       </View>
     );
   }
 }
 
-const HeaderTitleStyles = StyleSheet.create({
+const HeaderStyles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     flexDirection: 'column',
