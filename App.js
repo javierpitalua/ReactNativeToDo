@@ -1,13 +1,16 @@
 import React from 'react';
-import { AppRegistry } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 import LoginScreen from './app/src/views/LoginScreen';
-import HomeScreen from './app/src/views/HomeScreen';
+import ProjectScreen from './app/src/views/ProjectScreen';
+import DetailScreen from './app/src/views/DetailScreen';
+import MoreScreen from './app/src/views/MoreScreen';
 
 const ReactNativeToDo = StackNavigator({
   LoginScreen: { screen: LoginScreen },
-  HomeScreen: { screen: HomeScreen },
+  ProjectScreen: { screen: ProjectScreen },
+  DetailScreen: { screen: DetailScreen },
+  MoreScreen: { screen: MoreScreen },
 });
 
 export default class App extends React.Component {

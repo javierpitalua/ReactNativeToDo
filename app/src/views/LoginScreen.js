@@ -6,7 +6,8 @@ import {
   View,
   Button,
   Alert,
-  StatusBar
+  StatusBar,
+  Image
 } from 'react-native';
 
 const usernamePlaceholder = 'Username';
@@ -24,7 +25,7 @@ export default class LoginScreen extends React.Component {
 
   _doLogin() {
     const { navigate } = this.props.navigation;
-    navigate('HomeScreen');
+    navigate('ProjectScreen');
   }
 
   render() {
@@ -32,7 +33,11 @@ export default class LoginScreen extends React.Component {
       <View style={LoginStyles.mainContainer}>
         <StatusBar hidden />
         <View style={LoginStyles.inputContainer}>
-          <Text style={LoginStyles.title}>Welcome!</Text>
+          <Image
+            style={{ width: '75%', height: 70 }}
+            source={require('../../../app/img/genericLogo.png')}
+          />
+          <Text style={LoginStyles.title}>Come and join us!</Text>
         </View>
         <View style={LoginStyles.inputContainer}>
           <TextInput style={LoginStyles.textInput} placeholder={usernamePlaceholder}></TextInput>
@@ -53,7 +58,8 @@ const LoginStyles = StyleSheet.create({
     backgroundColor: '#eeeeee',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '100%'
+    width: '100%',
+    paddingTop: 20,
   },
   inputContainer: {
     flex: 1,
@@ -64,7 +70,8 @@ const LoginStyles = StyleSheet.create({
     width: '100%'
   },
   title: {
-    fontSize: 50
+    fontSize: 25,
+    fontStyle: 'italic'
   },
   textInput: {
     width: '75%',
@@ -77,6 +84,7 @@ const LoginStyles = StyleSheet.create({
     justifyContent: 'center',
   },
   button: {
-    height: 50
+    height: 100,
+    width: '70%'
   },
 });

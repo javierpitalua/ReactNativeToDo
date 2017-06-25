@@ -12,7 +12,7 @@ export default class HeaderRight extends React.Component {
   }
 
   _doLogout() {
-    const { navigate } = this.props.navigation;
+    //const { navigate } = this.props.navigation;
     //navigate('LoginScreen');
   }
 

@@ -9,7 +9,8 @@ export default class HeaderTitle extends React.Component {
   render() {
     return (
       <View style={HeaderStyles.mainContainer}>
-        <Text style={HeaderStyles.title}>Welcome [Username]!</Text>
+        <Text style={HeaderStyles.title}>Projects</Text>
+        <Text style={HeaderStyles.badgeText}>3</Text>
       </View>
     );
   }
@@ -18,9 +19,23 @@ export default class HeaderTitle extends React.Component {
 const HeaderStyles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    flexDirection: 'column',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%'
+  },
+  title: {
+    fontSize: 25,
+  },
+  badgeText: {
+    fontSize: 20,
+    width: 25,
+    height: 25,
+    borderRadius: 30,
+    backgroundColor: 'yellowgreen',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: 10,
+    textAlign: 'center'
   },
 });
