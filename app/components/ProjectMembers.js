@@ -45,6 +45,7 @@ const DetailStyles = StyleSheet.create({
     flexDirection: 'row',
   },
   touchableHighlight: {
+    padding: 5,
   },
   imageMember: {
     width: 50,

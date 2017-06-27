@@ -22,20 +22,22 @@ const HeaderStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '100%'
+    width: '100%',
   },
   title: {
     fontSize: 25,
+    color: 'white',
   },
   badgeText: {
     fontSize: 20,
     width: 25,
     height: 25,
     borderRadius: 30,
-    backgroundColor: 'yellowgreen',
+    backgroundColor: '#f44336',
     alignItems: 'center',
     justifyContent: 'center',
     marginLeft: 10,
-    textAlign: 'center'
+    textAlign: 'center',
+    color: 'white',
   },
 });

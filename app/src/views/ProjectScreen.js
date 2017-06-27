@@ -11,38 +11,45 @@ export default class ProjectScreen extends React.Component {
     headerTitle: <HeaderTitle />,
     headerLeft: <HeaderLeft />,
     headerRight: <HeaderRight />,
+    headerStyle: { backgroundColor: '#2f323e' },
   };
 
   constructor(props, context) {
     super(props, context);
+
     const listViewDataSource = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
       dataSource: listViewDataSource.cloneWithRows(['row 1', 'row 2', 'row 3']),
     };
-  }
 
-  _renderRow() {
+    this.props = props;
+  }
+  
+  _renderRow(navigation) {
     return (
       <Accordion
         header={
-          <View style={ProjectStyles.mainContainer}>
+          <View style={ProjectStyles.accordionElement}>
             <Text style={ProjectStyles.textProject}>This is my project's full name!</Text>
           </View>
         }
         content={
-          <DetailScreen />
+          <DetailScreen navigation={navigation} />
         }
         easing="easeInOutElastic"
-        underlayColor='#fff'
+        underlayColor='white'
       />
     );
   }
 
   render() {
+    const { navigation } = this.props;
+
     return (
       <ListView
         dataSource={this.state.dataSource}
-        renderRow={this._renderRow}
+        renderRow={() => this._renderRow(navigation)}
+        style={ ProjectStyles.mainContainer }
       />
     );
   }
@@ -50,21 +57,23 @@ export default class ProjectScreen extends React.Component {
 
 const ProjectStyles = StyleSheet.create({
   mainContainer: {
+    backgroundColor: '#eeeeee',
+  },
+  accordionElement:{
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
     height: 60,
     padding: 5,
-    borderWidth: 1,
-    borderColor: 'black',
-    borderRadius: 5,
-    backgroundColor: 'white'
+    borderTopWidth: 1,
+    borderTopColor: 'black',
+    backgroundColor: 'white',
   },
   textProject: {
     fontSize: 25,
     textAlign: 'left',
     width: '100%',
     padding: 10,
-    color: 'skyblue'
+    color: '#337ab7',
   },
 });

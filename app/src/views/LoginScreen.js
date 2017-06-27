@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-  Button,
-  Alert,
-  StatusBar,
-  Image
-} from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button, Alert, StatusBar, Image } from 'react-native';
 
 const usernamePlaceholder = 'Username';
 const passwordPlaceholder = 'Password';
@@ -25,7 +16,7 @@ export default class LoginScreen extends React.Component {
 
   _doLogin() {
     const { navigate } = this.props.navigation;
-    navigate('ProjectScreen');
+    navigate('ProjectScreen', {navigation: this.props.navigation});
   }
 
   render() {
@@ -33,18 +24,22 @@ export default class LoginScreen extends React.Component {
       <View style={LoginStyles.mainContainer}>
         <StatusBar hidden />
         <View style={LoginStyles.inputContainer}>
-          <Image
-            style={{ width: '75%', height: 70 }}
-            source={require('../../../app/img/genericLogo.png')}
-          />
+          <Text style={LoginStyles.title}>Welcome!</Text>
           <Text style={LoginStyles.title}>Come and join us!</Text>
         </View>
         <View style={LoginStyles.inputContainer}>
-          <TextInput style={LoginStyles.textInput} placeholder={usernamePlaceholder}></TextInput>
-          <TextInput style={LoginStyles.textInput} placeholder={passwordPlaceholder}></TextInput>
+          <TextInput style={LoginStyles.textInput}
+            placeholder={usernamePlaceholder}
+            ref={(el) => { this.username = el; }}
+            onChangeText={(username) => this.setState({ username })}></TextInput>
+          <TextInput style={LoginStyles.textInput}
+            secureTextEntry={true}
+            placeholder={passwordPlaceholder}
+            ref={(el) => { this.password = el; }}
+            onChangeText={(password) => this.setState({ password })}></TextInput>
         </View>
         <View style={LoginStyles.buttonContainer}>
-          <Button style={LoginStyles.button} color='skyblue' title='LOG IN' onPress={this._doLogin} />
+          <Button style={LoginStyles.button} color='#707cd2' title='LOG IN' onPress={this._doLogin} />
         </View>
       </View>
     );
@@ -67,24 +62,23 @@ const LoginStyles = StyleSheet.create({
     backgroundColor: '#eeeeee',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '100%'
+    width: '100%',
   },
   title: {
     fontSize: 25,
-    fontStyle: 'italic'
   },
   textInput: {
     width: '75%',
-    height: 50
+    height: 50,
   },
   buttonContainer: {
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     justifyContent: 'center',
   },
   button: {
     height: 100,
-    width: '70%'
+    width: '70%',
   },
 });

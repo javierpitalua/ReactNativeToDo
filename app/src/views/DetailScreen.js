@@ -8,19 +8,20 @@ export default class DetailScreen extends React.Component {
   constructor(props, context) {
     super(props, context);
     this._doMore = this._doMore.bind(this);
+    this.props = props;
   }
 
   _doMore() {
-    // const { navigate } = this.props.navigation;
-    // navigate('MoreScreen');
   }
 
   render() {
+    const { navigation } = this.props;
+
     return (
       <View style={DetailStyles.mainContainer}>
         <Text style={DetailStyles.textMore} onPress={this._doMore}>More</Text>
         <ProjectMembers />
-        <TaskList />
+        <TaskList navigation={navigation} />
       </View>
     );
   }
@@ -37,7 +38,7 @@ const DetailStyles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'right',
     width: '100%',
-    color: 'skyblue',
+    color: '#337ab7',
     paddingRight: 10
   }
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, ListView, StyleSheet, Image } from 'react-native';
+import { Text, View, ListView, StyleSheet, Image, Alert, TouchableHighlight } from 'react-native';
 import MoreScreen from '../../app/src/views/MoreScreen';
 
 export default class TaskList extends React.Component {
@@ -9,17 +9,21 @@ export default class TaskList extends React.Component {
     this.state = {
       dataSource: listViewDataSource.cloneWithRows(['row 1', 'row 2', 'row 3']),
     };
+
     this._doTaskDetail = this._doTaskDetail.bind(this);
+    this.props = props;
   }
 
-  _doTaskDetail() {
-    // const { navigate } = this.props.navigation;
-    // navigate('MoreScreen');
+  _doTaskDetail(rowData) {
+    const { navigate } = this.props.navigation;
+    navigate('TaskDetailScreen');
   }
 
-  _renderRow() {
+  _renderRow(rowData) {
     return (
-      <Text style={DetailStyles.textRow} onPress={this._doTaskDetail}>Project's task long test name!</Text>
+      <TouchableHighlight underlayColor='transparent' onPress={() => this._doTaskDetail(rowData)}>
+        <Text style={DetailStyles.textRow}>Project's task long test name!</Text>
+      </TouchableHighlight>
     );
   }
 
@@ -28,7 +32,7 @@ export default class TaskList extends React.Component {
       <View style={DetailStyles.mainStyles}>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={this._renderRow}
+          renderRow={(rowData) => this._renderRow(rowData)}
         />
       </View>
     );
@@ -44,6 +48,8 @@ const DetailStyles = StyleSheet.create({
   textRow: {
     fontWeight: 'bold',
     fontSize: 25,
-    padding: 5
-  }
+    padding: 10,
+    borderTopWidth: 1,
+    borderTopColor: 'black',
+  },
 });

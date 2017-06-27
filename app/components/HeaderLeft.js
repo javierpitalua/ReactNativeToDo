@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-  Image,
-  TouchableHighlight
-} from 'react-native';
+import { StyleSheet, View, Image, TouchableHighlight } from 'react-native';
 
 export default class HeaderLeft extends React.Component {
   constructor(props, context) {
@@ -13,14 +8,12 @@ export default class HeaderLeft extends React.Component {
   }
 
   _doOpenProfile() {
-    //const { navigate } = this.props.navigation;
-    //navigate('ProfileScreen');
   }
 
   render() {
     return (
       <View style={HeaderStyles.mainContainer}>
-        <TouchableHighlight onPress={this._doOpenProfile}>
+        <TouchableHighlight underlayColor='transparent' onPress={this._doOpenProfile}>
           <Image
             style={{ width: 50, height: 50 }}
             source={require('../../app/img/userDefault.png')}

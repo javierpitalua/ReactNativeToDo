@@ -12,14 +12,12 @@ export default class HeaderRight extends React.Component {
   }
 
   _doLogout() {
-    //const { navigate } = this.props.navigation;
-    //navigate('LoginScreen');
   }
 
   render() {
     return (
       <View style={HeaderStyles.mainContainer}>
-        <Button color='skyblue' title='LOG OUT' onPress={this._doLogout} />
+        <Button color='#707cd2' title='LOG OUT' onPress={this._doLogout} />
       </View>
     );
   }
@@ -32,6 +30,6 @@ const HeaderStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
-    paddingRight: 10
+    paddingRight: 10,
   },
 });
