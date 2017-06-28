@@ -12,6 +12,8 @@ export default class DetailScreen extends React.Component {
   }
 
   _doMore() {
+    const { navigate } = this.props.navigation;
+    navigate('MoreScreen');
   }
 
   render() {
